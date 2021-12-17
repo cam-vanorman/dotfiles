@@ -1,0 +1,22 @@
+[user]
+    name = Cameron Van Orman
+    email = cameron.vanorman@gmail.com
+	signingkey = 475DE17921BE34F40B3FBB2BC12D7D89253451DF
+[github]
+    user = cam-vanorman
+[color]
+    ui = auto
+[core]
+    editor = nano
+[credential]
+    helper = store
+[pull]
+	rebase = false
+[commit]
+	gpgsign = true
+[alias]
+	resign = "!_() { : git checkout ; [ \"$#\" -eq 0 ] && echo 'Usage: resign <rev-list>' && exit 2; \
+                   git filter-branch --commit-filter ' \
+                   if [ \"$GIT_COMMITTER_EMAIL\" = \"cameron.vanorman@gmail.com\" ]; then git commit-tree -S \"$@\"; else git commit-tree \"$@\"; fi' $1; }; _"
+[init]
+	defaultBranch = main

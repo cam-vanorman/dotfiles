@@ -1,0 +1,50 @@
+#!/bin/sh
+
+# Enable aliases to be ran as sudo
+alias sudo='sudo '
+
+# Lock the screen (when going AFK)
+alias afk="pmset displaysleepnow"
+
+# Flush the DNS
+alias dnsflush="sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache"
+
+# Directory listings
+alias ls="ls -G -h -p"
+alias ll="ls -l -G -h -p"
+
+# Show/hide hidden files in Finder
+alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+
+# Reload the shell
+alias reload="exec $SHELL -l"
+
+# Print each PATH entry on a separate line
+alias path="echo -e ${PATH//:/\\n}"
+
+# Homestead
+alias homestead='function __homestead() {
+    if [[ $@ == "config" ]]; then
+        command open ~/Homestead/Homestead.yaml
+    else
+        (cd ~/Homestead && vagrant $*);
+    fi
+}; __homestead'
+
+# Tailwind CSS
+alias tailwind="./node_modules/.bin/tailwind"
+
+# PHPUnit
+alias phpunit="./vendor/bin/phpunit"
+alias p="phpunit"
+alias pf="phpunit --filter"
+
+# Reset Git repository and clear any newly added files
+alias nah="git reset --hard;git clean -df"
+alias conflicts="git ls-files -u"
+
+# Composer link
+composer-link() {  
+    composer config repositories.local '{"type": "path", "url": "'$1'"}' --file composer.json
+}
