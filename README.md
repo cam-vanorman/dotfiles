@@ -1,5 +1,5 @@
 # dotfiles
-Inspired and based off of [@kaidesu](git@github.com:kaidesu/dotfiles.git). I've been using this for a while now and it's been a great experience.
+Inspired and based off of [@kaidesu's](git@github.com:kaidesu/dotfiles.git) dotfiles. I've been using this for a while now and it's been a great experience.
 
 > **Note:** You will need to go through each dotfile to personalize it to your liking, GPG signing key, name, and email.
 
