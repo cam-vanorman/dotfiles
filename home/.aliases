@@ -7,7 +7,7 @@ alias sudo='sudo '
 alias afk="pmset displaysleepnow"
 
 # Flush the DNS
-alias dnsflush="sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache"
+alias dnsflush="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder && echo -n "\DNS Cache Cleared\"
 
 # Directory listings
 alias ls="ls -G -h -p"
@@ -27,7 +27,7 @@ alias path="echo -e ${PATH//:/\\n}"
 alias homestead='function __homestead() {
     if [[ $@ == "config" ]]; then
         command open ~/Homestead/Homestead.yaml
-    else
+    else`
         (cd ~/Homestead && vagrant $*);
     fi
 }; __homestead'
